@@ -1,0 +1,39 @@
+{
+    "GameObjects":[
+        {
+            "layer": 0,
+            "name": "Player"       
+        },
+        {
+
+        }
+    ],
+    "DrawnObjects":[
+        {
+            "layer": 3,
+            "name": "obstacle",    
+            "type": "Ellipse",
+            "renderFlag": true,
+            "data": [
+                {"xpos":50},{"ypos":50},
+                {"xsize":100},{"ysize":100}
+            ],
+            "color":"blue"
+        },
+        {
+            "layer": 3,
+            "name": "Box",    
+            "type": "Rectangle",  
+            "renderFlag": true,
+            "data": [
+                {"xpos":50},{"ypos":50},
+                {"xsize":100},{"ysize":100}
+            ],
+            "color":"blue"
+        }
+
+    ]    
+
+
+   
+}
