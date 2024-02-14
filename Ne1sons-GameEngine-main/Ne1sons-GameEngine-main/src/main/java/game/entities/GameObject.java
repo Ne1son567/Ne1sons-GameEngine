@@ -22,14 +22,14 @@ public class GameObject
         this.xsize = _xsize;
         this.ysize = _ysize;
     }
-    public void renderAllGameObjectEntities(Graphics2D g2D)
+    public void render(Graphics2D g2D)
     {
         for(int i = 0; i < GameObjectEntities.size(); i++)
         {
             GameObjectEntities.get(i).render(g2D);
         }
     }
-    public void addEntitie(DrawnObject drawnObject)
+    public void addObject(DrawnObject drawnObject)
     {
         GameObjectEntities.add(drawnObject);
     }

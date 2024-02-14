@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 
 //Custom-Defined Imports
 import main.java.game.graphic.JPanels.GameJPanel;
+import main.java.game.graphic.JPanels.MenueOverlay;
 
 public class MainJFrame extends JFrame
 {
@@ -15,14 +16,20 @@ public class MainJFrame extends JFrame
         setTitle("mainJFrame");
         setSize(1400,1000); 
         setLayout(null);
-        //setUndecorated(true);
+        setUndecorated(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gameJPanel1 = new GameJPanel(1400,1000);
-        add(gameJPanel1);
         setResizable(true);
         setLocationRelativeTo(null);
+        
+        gameJPanel1 = new GameJPanel(1400,1000);
+        add(gameJPanel1);
+        
+        MenueOverlay menueOverlay = new MenueOverlay();
+        menueOverlay.setBounds(0, 0, 1400, 1000);
+        add(menueOverlay);
+
         setVisible(true);
-       
+        
     }
     
     public JFrame getmainJFrame()

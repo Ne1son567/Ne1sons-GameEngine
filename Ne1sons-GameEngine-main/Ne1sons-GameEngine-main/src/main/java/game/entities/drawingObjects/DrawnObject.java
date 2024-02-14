@@ -5,11 +5,14 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import main.java.game.graphic.JFrames.MainJFrame;
+import main.java.game.graphic.JPanels.GameJPanel;
+
 //Custom-Defined Imports
 
 public abstract class DrawnObject 
 {
-    private static ArrayList<DrawnObject> allDrawnObjects = new ArrayList<DrawnObject>();
+  
     private float xpos;
     private float ypos;
     private float xsize;
@@ -24,14 +27,16 @@ public abstract class DrawnObject
     private boolean outline = false;
 
    
-    public DrawnObject (float _xpos, float _ypos, float _xsize, float _ysize, boolean _renderFlag)
+    public DrawnObject (float _xpos, float _ypos, float _xsize, float _ysize, boolean _renderFlag, String _name)
     {
-        allDrawnObjects.add(this);
+        MainJFrame.getGameJPanel1().addToAllGameObjects(this);
         this.xsize = _xsize;
         this.ysize = _ysize;
         setXPos(_xpos);
         setYPos(_ypos);
         this.renderFlag = _renderFlag;
+        this.name = _name;
+        System.out.println("DrawnObject: " + this.name + " erstellt");
     }
     public float getXPos()
     {
@@ -65,19 +70,17 @@ public abstract class DrawnObject
     {
         return renderFlag;
     }
-    public static ArrayList<DrawnObject> getAllDrawnObjects()
-    {
-        return allDrawnObjects;
-    }
     public boolean isOutline()
     {
         return outline;
     }
-    public void setOuline(int _outlineWidth, Color _outlineColor)
+    public void setOutline(int _outlineWidth, Color _outlineColor)
     {
+        
         outline = true;
         this.outlineWidth = _outlineWidth;
         this.outlineColor = _outlineColor;
+        
     }
     public void setColor(Color _color)
     {
@@ -90,10 +93,12 @@ public abstract class DrawnObject
     
     public Color getOutlineColor()
     {
+        
         return outlineColor;
     }
     public int getOutlineWidth()
     {
+       
         return outlineWidth;
     }
     public abstract void render(Graphics2D g2D);

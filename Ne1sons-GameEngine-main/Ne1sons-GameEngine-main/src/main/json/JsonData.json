@@ -1,8 +1,54 @@
 {
     "GameObjects":[
+        {   
+            "layer": 3,
+            "name": "Player1",
+            "data": [
+                {"xpos":500},{"ypos":500},
+                {"xsize":200},{"ysize":200}
+            ], 
+            "DrawnObjects":[{
+                "layer": 1,
+                "name": "body",    
+                "type": "Ellipse",
+                "renderFlag": true,
+                "data": [
+                    {"xpos":0},{"ypos":0},
+                    {"xsize":20},{"ysize":20}
+                ],
+                "color":"#454242",
+                "outlineColor":"#b02727",
+                "outlineWidth":2
+            },
+            {
+                "layer": 2,
+                "name": "leftHand",    
+                "type": "Ellipse",
+                "renderFlag": true,
+                "data": [
+                    {"xpos":150},{"ypos":50},
+                    {"xsize":100},{"ysize":100}
+                ],
+                "color":"#454242",
+                "outlineColor":"#b02727",
+                "outlineWidth":2
+            },
+            {
+                "layer": 2,
+                "name": "rightHand",    
+                "type": "Ellipse",
+                "renderFlag": true,
+                "data": [
+                    {"xpos":150},{"ypos":50},
+                    {"xsize":100},{"ysize":100}
+                ],
+                "color":"#454242",
+                "outlineColor":"#b02727",
+                "outlineWidth":2
+            }]
+        },
         {
-            "layer": 0,
-            "name": "Player"       
+               
         },
         {
 
@@ -11,25 +57,29 @@
     "DrawnObjects":[
         {
             "layer": 3,
-            "name": "obstacle",    
+            "name": "obstacle-pier",    
             "type": "Ellipse",
             "renderFlag": true,
             "data": [
-                {"xpos":50},{"ypos":50},
+                {"xpos":150},{"ypos":50},
                 {"xsize":100},{"ysize":100}
             ],
-            "color":"blue"
+            "color":"#454242",
+            "outlineColor":"#b02727",
+            "outlineWidth":2
         },
         {
-            "layer": 3,
-            "name": "Box",    
+            "layer": 2,
+            "name": "obstacle-box",    
             "type": "Rectangle",  
             "renderFlag": true,
             "data": [
                 {"xpos":50},{"ypos":50},
                 {"xsize":100},{"ysize":100}
             ],
-            "color":"blue"
+            "color":"#454242",
+            "outlineColor":"#b02727",
+            "outlineWidth": 3
         }
 
     ]    

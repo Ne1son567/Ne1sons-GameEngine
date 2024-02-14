@@ -1,5 +1,6 @@
 package main.java.game.entities.drawingObjects;
 
+import java.awt.BasicStroke;
 //Java-Imports
 import java.awt.Graphics2D;
 
@@ -7,9 +8,9 @@ import java.awt.Graphics2D;
 
 public class Rectangle extends DrawnObject 
 {
-    public Rectangle (float _xpos, float _ypos, float _xsize, float _ysize, boolean _renderFlag)
+    public Rectangle (float _xpos, float _ypos, float _xsize, float _ysize, boolean _renderFlag, String _name)
     {
-        super(_xpos,_ypos,_xsize,_ysize, _renderFlag);
+        super(_xpos,_ypos,_xsize,_ysize, _renderFlag, _name);
     }
 
     public void render(Graphics2D g2D)
@@ -19,6 +20,7 @@ public class Rectangle extends DrawnObject
         if(isOutline() ==  true)
         {
             g2D.setColor(getOutlineColor());
+            g2D.setStroke(new BasicStroke(getOutlineWidth()));
             g2D.drawRect((int)getXPos(), (int)getYPos(), (int)getXSize(), (int)getYSize());
         }
     }

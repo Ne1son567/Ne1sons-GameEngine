@@ -21,17 +21,18 @@ public class GameJPanel extends JPanel
 {
     private float gameJPanelXSize;
     private float gameJPanelYSize;
-    private ArrayList<DrawnObject> allRenderDrawnObjects = new ArrayList<DrawnObject>();
-    private ArrayList<GameObject> allGameObjects = new ArrayList<GameObject>();
+    
+    private ArrayList<Object> allGameObjects = new ArrayList<Object>();//gameobjekte -> Ellipsen und Rechtecke
     
     public GameJPanel (float _gameJPanelXSize, float _gameJPanelYSize)
     {
         this.gameJPanelXSize = _gameJPanelXSize;
         this.gameJPanelYSize = _gameJPanelYSize;
         setLayout(null);
+        
         setBounds(0,0,(int)gameJPanelXSize,(int)gameJPanelYSize);
         setBackground(Color.GRAY);
-        
+        setOpaque(false);
         //setBorder(BorderFactory.createCompoundBorder(new LineBorder(Color.red), BorderFactory.createEmptyBorder(10,10,10,10)));
         
         //new Rectangle(101, 101, 200, 200, true);
@@ -55,27 +56,34 @@ public class GameJPanel extends JPanel
         g2D.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
         g2D.setRenderingHint(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
        
-        renderAllDrownObjects(g2D);
+        renderAllObjects(g2D);
     }
-    public void renderAllDrownObjects(Graphics2D g2D)
+    public void renderAllObjects(Graphics2D g2D)
     {
-        g2D.setColor(new Color(0,0,0,40));
-        allRenderDrawnObjects = DrawnObject.getAllDrawnObjects();
-        for(int i = 0; i < allRenderDrawnObjects.size(); i++)
+        
+        for(int i = 0; i < allGameObjects.size(); i++)
         {
-            //allRenderDrawnObjects.get(i).setColor(Color.red);
-            //allRenderDrawnObjects.get(i).setOuline(2, Color.GREEN);
+           
+            if(allGameObjects.get(i) instanceof DrawnObject)
+            {
+                ((DrawnObject) allGameObjects.get(i)).render(g2D);
+            }
+            if(allGameObjects.get(i) instanceof GameObject)
+            {
+                ((GameObject) allGameObjects.get(i)).render(g2D);
+            }
             
-            allRenderDrawnObjects.get(i).render(g2D);
+            
         }
-        for (int i = 0; i < allGameObjects.size(); i++)
-        {
-            allGameObjects.get(i).renderAllGameObjectEntities(g2D);
-        }
+        
     }
 
-    public ArrayList<DrawnObject> getAllRenderDrawnObjects()
+    public ArrayList<Object> getAllGameObjects()
     {
-        return allRenderDrawnObjects;
+        return allGameObjects;
+    }
+    public void addToAllGameObjects(Object _obj)
+    {
+        allGameObjects.add(_obj);
     }
 }
